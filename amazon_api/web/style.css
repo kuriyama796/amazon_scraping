@@ -1,0 +1,16 @@
+.title {
+    text-align: center;
+}
+
+.form {
+    margin: 0 auto;
+}
+
+.result_wrapper {
+    margin-top: 50px;
+}
+
+.result {
+    width: 90%;
+    height: auto;
+}

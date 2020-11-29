@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>amazon</title>
+</head>
+<body>
+    <div>
+        <h1 class="title">amazon スクレイピング</h1>
+    </div>
+
+    <div>
+        <div class="form"> 
+            <select name="name" id="select_genre">
+                <option value="who">--- ジャンルを選択してください ---</option>
+                <option value="toys">おもちゃ</option>
+                <option value="videogames">ゲーム</option>
+                <option value="kitchen">ホーム＆キッチン</option>
+                <option value="computers">パソコン・周辺機器</option>
+            </select>
+            <input type="submit" name="submit" id="submit" value="決定" />
+            <div class="result_wrapper">
+                <textarea class="result" name="result" id="search_result" cols="30" rows="10"></textarea>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="./eel.js"></script>
+    <script type="text/javascript">
+        submit.addEventListener('click', () => {
+            add_result(select_genre.value);
+        })
+
+        function get_ranking(genre) {
+            let result = eel.set_genre(genre)();
+            return result;
+        }
+
+        async function add_result(genre) {
+            let ranking = await get_ranking(genre);
+            search_result.value = ranking;
+        }
+    </script>
+</body>
+</html>
